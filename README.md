@@ -38,7 +38,6 @@ ProductListApp is an iOS application that fetches and displays a list of product
 
 <img src="https://github.com/user-attachments/assets/d96c71f8-c087-4858-aa12-4ceeb5ffd2ec" alt="Home Screen" width="180"/>
 <img src="https://github.com/user-attachments/assets/98e8246c-11ca-43c0-bf7d-8e8d449a3bc2" alt="Home Screen" width="180"/>
-<img src="https://github.com/user-attachments/assets/c2173f75-85fe-4b1c-a4c7-d18549654cf8" alt="Home Screen" width="180"/>
 <img src="https://github.com/user-attachments/assets/4a04a852-42fd-4e02-ae05-4b587245ff31" alt="Home Screen" width="180"/>
 <img src="https://github.com/user-attachments/assets/ef90898e-8a09-480b-b7d7-e3c0e1ad803e" alt="Home Screen" width="180"/>
 
