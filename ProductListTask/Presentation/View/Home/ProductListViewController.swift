@@ -43,12 +43,16 @@ class ProductListViewController: UIViewController {
         viewModel.fetchProductsList()
         bindViewModel()
         registerCell()
-        //setupUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setupSkeleton()
+        if viewModel.numberOfProducts == 0 {
+            setupSkeleton()
+        } else {
+            productsCollectionView.stopSkeletonAnimation()
+            view.hideSkeleton()
+        }
     }
 
     
@@ -61,10 +65,7 @@ class ProductListViewController: UIViewController {
     
     //MARK: - Helper functions
     
-    
 
-    
-    
     func setupSkeleton(){
         productsCollectionView.isSkeletonable = true
         productsCollectionView.showSkeleton(usingColor: .concrete, transition: .crossDissolve(0.25))
