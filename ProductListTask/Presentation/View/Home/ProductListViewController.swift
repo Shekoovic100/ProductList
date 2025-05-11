@@ -85,21 +85,22 @@ class ProductListViewController: UIViewController {
         }
         
         viewModel.onError = { [weak self] error in
-            self?.showError(error)
+            self?.showAlert(title: "", message: error)
         }
         
         viewModel.onLoadingStateChanged = { [weak self] isLoading in
             isLoading ? self?.activityIndicator.startAnimating() : self?.activityIndicator.stopAnimating()
         }
+        
+        viewModel.onNetworkStatusChanged = { [weak self] isConnected in
+            if !isConnected {
+                self?.showAlert(title: "Offline", message: "No internet connection. Please connect to a network.")
+            }else {
+                self?.dismiss(animated: true)
+            }
+        }
     }
-    
-    
-    private func showError(_ error: String) {
-        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
-    }
-    
+ 
 }
 
 //MARK: CollectionView data And delegate methods

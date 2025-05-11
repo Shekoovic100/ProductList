@@ -26,11 +26,14 @@ class ProductListViewModel {
     var onProductsUpdated: (() -> Void)?
     var onError: ((String) -> Void)?
     var onLoadingStateChanged: ((Bool) -> Void)?
+    var onNetworkStatusChanged: ((Bool) -> Void)?
     
     init(fetchProductsUseCase: FetchProductsUseCaseProtocol) {
         self.fetchProductsUseCase = fetchProductsUseCase
+        checkInternet()
     }
     
+
     func fetchProductsList() {
         
         guard !isLoading, hasMoreProducts else {
@@ -93,6 +96,15 @@ class ProductListViewModel {
     
     func product(at index: Int) -> Product {
         return displayedProducts[index]
+    }
+    
+    func checkInternet() {
+        NetworkMonitor.shared.onNetworkStatusChanged = { [weak self] isConnected in
+            self?.onNetworkStatusChanged?(isConnected)
+            if !isConnected {
+                self?.onError?("No internet connection. Please check your network.")
+            }
+        }
     }
     
     

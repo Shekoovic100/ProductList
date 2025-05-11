@@ -18,29 +18,11 @@ class NetworkService: NetworkServiceProtocol {
     
     private let baseURL = "https://fakestoreapi.com/products"
     private var isConnected = true
-    private let monitor: NWPathMonitor
-    private let queue = DispatchQueue(label: "NetworkServiceMonitor")
-    
-    
-    init() {
-        monitor = NWPathMonitor()
-        monitor.pathUpdateHandler = { [weak self] path in
-            self?.isConnected = path.status == .satisfied
-            print("NWPathMonitor updated: \(self?.isConnected ?? false)")
-        }
-        monitor.start(queue: queue)
-    }
-    
-    deinit {
-        monitor.cancel()
-    }
-    
     
     
     func fetchProducts(completion: @escaping (Result<[Product], NetworkError>) -> Void) {
         
-        guard isInternetAvailable() else {
-            print("No internet connection detected")
+        guard NetworkMonitor.shared.isConnected else {
             completion(.failure(.noInternet))
             return
         }
@@ -70,13 +52,4 @@ class NetworkService: NetworkServiceProtocol {
         }.resume()
     }
     
-}
-
-
-extension NetworkService {
-    
-    private func isInternetAvailable() -> Bool {
-        print("Checking cached internet status: \(isConnected)")
-        return isConnected
-    }
 }
