@@ -10,8 +10,19 @@
 		E0D54C612DD0BB5A00831112 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = E0D54C602DD0BB5A00831112 /* SkeletonView */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E0D54CB62DD1021C00831112 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0AA2A782DCF5A1B003E68CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E0AA2A7F2DCF5A1C003E68CF;
+			remoteInfo = ProductListTask;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		E0AA2A802DCF5A1C003E68CF /* ProductListTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductListTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0D54CB22DD1021C00831112 /* ProductListTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProductListTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -33,6 +44,11 @@
 			path = ProductListTask;
 			sourceTree = "<group>";
 		};
+		E0D54CB32DD1021C00831112 /* ProductListTaskTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ProductListTaskTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +60,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E0D54CAF2DD1021C00831112 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -51,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				E0AA2A822DCF5A1C003E68CF /* ProductListTask */,
+				E0D54CB32DD1021C00831112 /* ProductListTaskTests */,
 				E0AA2A812DCF5A1C003E68CF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				E0AA2A802DCF5A1C003E68CF /* ProductListTask.app */,
+				E0D54CB22DD1021C00831112 /* ProductListTaskTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,6 +114,29 @@
 			productReference = E0AA2A802DCF5A1C003E68CF /* ProductListTask.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E0D54CB12DD1021C00831112 /* ProductListTaskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0D54CB82DD1021C00831112 /* Build configuration list for PBXNativeTarget "ProductListTaskTests" */;
+			buildPhases = (
+				E0D54CAE2DD1021C00831112 /* Sources */,
+				E0D54CAF2DD1021C00831112 /* Frameworks */,
+				E0D54CB02DD1021C00831112 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E0D54CB72DD1021C00831112 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				E0D54CB32DD1021C00831112 /* ProductListTaskTests */,
+			);
+			name = ProductListTaskTests;
+			packageProductDependencies = (
+			);
+			productName = ProductListTaskTests;
+			productReference = E0D54CB22DD1021C00831112 /* ProductListTaskTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -101,6 +149,10 @@
 				TargetAttributes = {
 					E0AA2A7F2DCF5A1C003E68CF = {
 						CreatedOnToolsVersion = 16.2;
+					};
+					E0D54CB12DD1021C00831112 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = E0AA2A7F2DCF5A1C003E68CF;
 					};
 				};
 			};
@@ -122,12 +174,20 @@
 			projectRoot = "";
 			targets = (
 				E0AA2A7F2DCF5A1C003E68CF /* ProductListTask */,
+				E0D54CB12DD1021C00831112 /* ProductListTaskTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E0AA2A7E2DCF5A1C003E68CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0D54CB02DD1021C00831112 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -144,7 +204,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E0D54CAE2DD1021C00831112 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E0D54CB72DD1021C00831112 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E0AA2A7F2DCF5A1C003E68CF /* ProductListTask */;
+			targetProxy = E0D54CB62DD1021C00831112 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		E0AA2A942DCF5A1E003E68CF /* Debug */ = {
@@ -330,6 +405,42 @@
 			};
 			name = Release;
 		};
+		E0D54CB92DD1021C00831112 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4MN92Y7FJY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sherifsamy.ProductListTaskTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProductListTask.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ProductListTask";
+			};
+			name = Debug;
+		};
+		E0D54CBA2DD1021C00831112 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4MN92Y7FJY;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sherifsamy.ProductListTaskTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProductListTask.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ProductListTask";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -347,6 +458,15 @@
 			buildConfigurations = (
 				E0AA2A942DCF5A1E003E68CF /* Debug */,
 				E0AA2A952DCF5A1E003E68CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0D54CB82DD1021C00831112 /* Build configuration list for PBXNativeTarget "ProductListTaskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0D54CB92DD1021C00831112 /* Debug */,
+				E0D54CBA2DD1021C00831112 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
