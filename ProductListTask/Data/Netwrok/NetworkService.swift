@@ -19,10 +19,15 @@ class NetworkService: NetworkServiceProtocol {
     private let baseURL = "https://fakestoreapi.com/products"
     private var isConnected = true
     
+    let networkMonitor: NetworkMonitor
+    
+    init(networkMonitor: NetworkMonitor = .shared) {
+        self.networkMonitor = networkMonitor
+    }
     
     func fetchProducts(completion: @escaping (Result<[Product], NetworkError>) -> Void) {
         
-        guard NetworkMonitor.shared.isConnected else {
+        guard networkMonitor.isConnected else {
             completion(.failure(.noInternet))
             return
         }

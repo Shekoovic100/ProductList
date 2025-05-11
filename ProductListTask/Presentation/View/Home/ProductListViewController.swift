@@ -14,11 +14,13 @@ class ProductListViewController: UIViewController {
     
     @IBOutlet weak var productsCollectionView: UICollectionView!
     @IBOutlet weak var changeViewButton: UIBarButtonItem!
-    private let activityIndicator = UIActivityIndicatorView(style: .large)
+   // private let activityIndicator = UIActivityIndicatorView(style: .large)
     
     //MARK: proprities
     
     private let viewModel: ProductListViewModel
+    
+    
     
     init(viewModel: ProductListViewModel) {
         self.viewModel = viewModel
@@ -65,7 +67,6 @@ class ProductListViewController: UIViewController {
     
     //MARK: - Helper functions
     
-
     func setupSkeleton(){
         productsCollectionView.isSkeletonable = true
         productsCollectionView.showSkeleton(usingColor: .concrete, transition: .crossDissolve(0.25))
@@ -88,13 +89,13 @@ class ProductListViewController: UIViewController {
             self?.showAlert(title: "", message: error)
         }
         
-        viewModel.onLoadingStateChanged = { [weak self] isLoading in
-            isLoading ? self?.activityIndicator.startAnimating() : self?.activityIndicator.stopAnimating()
-        }
+//        viewModel.onLoadingStateChanged = { [weak self] isLoading in
+//            isLoading ? self?.activityIndicator.startAnimating() : self?.activityIndicator.stopAnimating()
+//        }
         
         viewModel.onNetworkStatusChanged = { [weak self] isConnected in
             if !isConnected {
-                self?.showAlert(title: "Offline", message: "No internet connection. Please connect to a network.")
+                self?.showAlert(title: Constants.alertOfflineTitle, message: Constants.alertNoInternetMessage)
             }else {
                 self?.dismiss(animated: true)
             }
@@ -126,7 +127,7 @@ extension ProductListViewController: SkeletonCollectionViewDataSource, UICollect
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let productData = viewModel.product(at: indexPath.item)
-        guard let productDetailsVC = storyboard?.instantiateViewController(withIdentifier: "ProductDetailsViewController") as? ProductDetailsViewController else { return }
+        guard let productDetailsVC = storyboard?.instantiateViewController(withIdentifier: Constants.productDetailsVCIdentifier) as? ProductDetailsViewController else { return }
         productDetailsVC.product = productData
         navigationController?.pushViewController(productDetailsVC, animated: true)
     }

@@ -102,7 +102,7 @@ class ProductListViewModel {
         NetworkMonitor.shared.onNetworkStatusChanged = { [weak self] isConnected in
             self?.onNetworkStatusChanged?(isConnected)
             if !isConnected {
-                self?.onError?("No internet connection. Please check your network.")
+                self?.onError?(Constants.alertNoInternetMessage)
             }
         }
     }
