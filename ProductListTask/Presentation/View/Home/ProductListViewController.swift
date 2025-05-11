@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class ProductListViewController: UIViewController {
     
@@ -42,7 +43,12 @@ class ProductListViewController: UIViewController {
         viewModel.fetchProductsList()
         bindViewModel()
         registerCell()
-        setupUI()
+        //setupUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupSkeleton()
     }
 
     
@@ -56,16 +62,12 @@ class ProductListViewController: UIViewController {
     //MARK: - Helper functions
     
     
-    private func setupUI() {
-        
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        activityIndicator.hidesWhenStopped = true
-        self.view.addSubview(activityIndicator)
-        
-        NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: productsCollectionView.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: productsCollectionView.centerYAnchor)
-        ])
+
+    
+    
+    func setupSkeleton(){
+        productsCollectionView.isSkeletonable = true
+        productsCollectionView.showSkeleton(usingColor: .concrete, transition: .crossDissolve(0.25))
     }
     
     
@@ -74,9 +76,13 @@ class ProductListViewController: UIViewController {
     }
     
     private func bindViewModel() {
+        
         viewModel.onProductsUpdated = { [weak self] in
+            self?.productsCollectionView.stopSkeletonAnimation()
+            self?.view.hideSkeleton()
             self?.productsCollectionView.reloadData()
         }
+        
         viewModel.onError = { [weak self] error in
             self?.showError(error)
         }
@@ -97,7 +103,13 @@ class ProductListViewController: UIViewController {
 
 //MARK: CollectionView data And delegate methods
 
-extension ProductListViewController: UICollectionViewDataSource, UICollectionViewDelegate  {
+extension ProductListViewController: SkeletonCollectionViewDataSource, UICollectionViewDelegate  {
+    
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> SkeletonView.ReusableCellIdentifier {
+        return ProductCell.identifier
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numberOfProducts
