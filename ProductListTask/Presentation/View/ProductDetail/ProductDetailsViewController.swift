@@ -44,7 +44,7 @@ class ProductDetailsViewController: UIViewController {
         productName.text = product?.title
         priceLabel.text = "Price: $\(product?.price ?? 0.0)"
         categoryLabel.text = "Category: \(product?.category ?? "")"
-        descriptionLabel.text = product?.description ?? ""
+        descriptionLabel.text = "Description:\n\(product?.description ?? "")"
         if let url = URL(string: product?.image ?? "") {
             productImageView.loadImage(from: url)
         }
