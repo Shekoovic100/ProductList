@@ -25,10 +25,10 @@ class ProductCell: UICollectionViewCell {
     //MARK:  Helper function
     
     private func setupUI() {
-        backGroundView.layer.borderWidth = 1.2
+        backGroundView.layer.borderWidth = 0.8
         backGroundView.layer.borderColor = UIColor.label.cgColor
         backGroundView.layer.masksToBounds = true
-       // backGroundView.layer.cornerRadius = backGroundView.bounds.width / 4
+        backGroundView.layer.cornerRadius = 8
     }
     
     func configureCell(with product: Product , isGrid: Bool) {
