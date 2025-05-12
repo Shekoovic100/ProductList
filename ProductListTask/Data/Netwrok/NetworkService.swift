@@ -31,7 +31,7 @@ class NetworkService: NetworkServiceProtocol {
             completion(.failure(.noInternet))
             return
         }
-    
+        
         guard let url = URL(string: baseURL) else {
             completion(.failure(NetworkError.invalidURL))
             return
@@ -43,17 +43,35 @@ class NetworkService: NetworkServiceProtocol {
                 return
             }
             
-            guard let data = data else {
-                completion(.failure(NetworkError.noData))
+            guard let httpResponse = URLResponse as? HTTPURLResponse else {
+                completion(.failure(.serverError(statusCode: 0)))
                 return
             }
-            
-            do {
-                let products = try JSONDecoder().decode([Product].self, from: data)
-                completion(.success(products))
-            } catch {
-                completion(.failure(.decodingError))
+            switch httpResponse.statusCode {
+                
+            case 200:
+                guard let data = data else {
+                    completion(.failure(NetworkError.noData))
+                    return
+                }
+                
+                do {
+                    let products = try JSONDecoder().decode([Product].self, from: data)
+                    completion(.success(products))
+                } catch {
+                    completion(.failure(.decodingError))
+                }
+            case 401 , 403:
+                completion(.failure(.unauthorized))
+            case 404:
+                completion(.failure(.notFound))
+            case 500...599:
+                completion(.failure(.serverError(statusCode: httpResponse.statusCode)))
+            default:
+                completion(.failure(.serverError(statusCode: httpResponse.statusCode)))
             }
+            
+            
         }.resume()
     }
     

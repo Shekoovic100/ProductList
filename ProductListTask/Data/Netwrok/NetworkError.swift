@@ -14,7 +14,9 @@ enum NetworkError: Error, LocalizedError  {
     case noData
     case networkError(Error)
     case decodingError
-             
+    case serverError(statusCode: Int)
+    case unauthorized
+    case notFound
     
     var errorDescription: String? {
         switch self {
@@ -28,6 +30,12 @@ enum NetworkError: Error, LocalizedError  {
                   return "Network error: \(error.localizedDescription)"
         case .decodingError:
             return "Failed to decode data"
+        case .serverError(statusCode: let statusCode):
+            return "Server error with Status Code: \(statusCode)"
+        case .unauthorized:
+            return "Unauthorized access"
+        case .notFound:
+            return "Resource not found."
         }
     }
 }
