@@ -32,7 +32,7 @@ ProductListApp is an iOS application that fetches and displays a list of product
 
 ### Testing:
 
-- Some Unit tests for DomainLayer (FetchProductsUseCase)
+- Some Unit tests for DomainLayer (FetchProductsUseCase) ViewLayer (productListViewModel)
 
 ## Screenshots     
 
@@ -65,7 +65,7 @@ Independent of frameworks and UI.
 
 ## Requirements
 
-- Xcode: 14.0 or later
+- Xcode: 16.2
 - Swift: 5.0
 - Dependencies: SkeletonView (via Swift Package Manager)
 
