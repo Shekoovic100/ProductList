@@ -25,7 +25,7 @@ class ProductDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Product Details"
+        title = "Details"
         navigationController?.navigationBar.tintColor = .black
         configureData()
     }
