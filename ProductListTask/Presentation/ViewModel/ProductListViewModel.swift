@@ -16,7 +16,7 @@ class ProductListViewModel {
     private var displayedProducts: [Product] = []
     private var currentPage = 0
     private let pageSize = 7
-    private var hasMoreProducts = true
+     var hasMoreProducts = true
     
     
     

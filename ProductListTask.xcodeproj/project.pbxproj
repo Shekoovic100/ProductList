@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E02BDB922DD20555005082E4 /* ProductListTask.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = E02BDB912DD20555005082E4 /* ProductListTask.xctestplan */; };
 		E0D54C612DD0BB5A00831112 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = E0D54C602DD0BB5A00831112 /* SkeletonView */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +22,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E02BDB912DD20555005082E4 /* ProductListTask.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ProductListTask.xctestplan; sourceTree = "<group>"; };
 		E0AA2A802DCF5A1C003E68CF /* ProductListTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductListTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D54CB22DD1021C00831112 /* ProductListTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProductListTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				E0AA2A822DCF5A1C003E68CF /* ProductListTask */,
+				E02BDB912DD20555005082E4 /* ProductListTask.xctestplan */,
 				E0D54CB32DD1021C00831112 /* ProductListTaskTests */,
 				E0AA2A812DCF5A1C003E68CF /* Products */,
 			);
@@ -191,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E02BDB922DD20555005082E4 /* ProductListTask.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
